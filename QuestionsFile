@@ -1,0 +1,69 @@
+1. What is method overloading?
+Method overloading means defining multiple methods with the same name but different parameters (type, number, or order) within the same class.
+It's a way to increase code readability and support polymorphism at compile time.
+
+Example:
+void print(int a) {}
+void print(String s) {}
+
+2. How do you handle divide-by-zero?
+You handle divide-by-zero by checking if the denominator is zero before performing the division.
+
+Example:
+if (b != 0) {
+    double result = a / b;
+} else {
+    System.out.println("Cannot divide by zero.");
+}
+
+3. Difference between == and .equals()?
+
+ Feature     `==`                              `.equals()`                      |
+ ----------  --------------------------------  -------------------------------- |
+ Comparison  Compares **references (memory)**  Compares **values/contents**     |
+ Use with    Primitives and Objects            Objects only (like String, List) |
+ Example     `str1 == str2`                    `str1.equals(str2)`              |
+
+4. What are the basic data types in Java?
+
+Java has 8 primitive data types:
+Integer types: byte, short, int, long
+Floating point types: float, double
+Character: char
+Boolean: boolean
+
+5. How is Scanner used for input?
+Scanner is a class used to read input from the keyboard.
+Example:
+
+import java.util.Scanner;
+Scanner sc = new Scanner(System.in);
+int num = sc.nextInt();
+String name = sc.nextLine();
+
+6. Explain the role of a loop.
+A loop repeatedly executes a block of code as long as a condition is true.
+It's used to avoid code duplication and handle repetitive tasks efficiently.
+
+7. Difference between while and for loop?
+
+ Feature  `while` loop                                       `for` loop
+ -------  -------------------------------------------------  -----------------------------------------------
+ Usage    Used when the number of iterations is unknown       Used when the number of iterations is known
+ Syntax   `while(condition) {}`                              `for(init; condition; update) {}`
+
+8. What is the JVM?
+JVM (Java Virtual Machine) is the engine that:
+Runs Java bytecode (.class files)
+Provides platform independence
+Handles memory management, garbage collection, etc.
+
+9. How is Java platform-independent?
+Java is platform-independent because the source code is compiled into bytecode,
+which can run on any machine with a JVM, regardless of OS or hardware.
+
+10. How do you debug a Java program?
+Use print statements (System.out.println) to track variable values.
+Use debuggers in IDEs (like IntelliJ, VS Code) to set breakpoints, step through code, inspect variables.
+Handle exceptions using try-catch to find issues.
+Log messages using logging frameworks (e.g., Log4j).
