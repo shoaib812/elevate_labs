@@ -1,0 +1,88 @@
+1. What is encapsulation?
+Encapsulation is the concept of hiding data within a class and only exposing it through public methods (getters and setters).
+It helps protect the internal state of an object.
+It supports modularity and security.
+
+Example:
+class Student {
+    private String name; // hidden
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+}
+
+
+2. How are ArrayLists different from arrays?
+Feature	        Array	                    ArrayList
+Size	        Fixed	                    Dynamic (can grow/shrink)
+Syntax	        int[] arr = new int[5];	    ArrayList<Integer> list = new ArrayList<>();
+Flexibility	    Less flexible	            More flexible (resizable)
+Methods	        No built-in methods	        Has many methods (add, remove, etc.)
+
+
+3. How to sort an ArrayList?
+We can use Collections.sort():
+
+Example:
+import java.util.*;
+ArrayList<String> list = new ArrayList<>();
+list.add("Banana");
+list.add("Apple");
+Collections.sort(list);
+
+
+4. What is constructor overloading?
+Constructor overloading means defining multiple constructors with different parameter lists in the same class.
+
+Example:
+class Student {
+    Student() {}
+    Student(String name) {}
+    Student(String name, int age) {}
+}
+
+
+5. How does garbage collection work in Java?
+Java uses automatic garbage collection to free memory by deleting unused objects.
+The JVM monitors and removes objects that are no longer referenced.
+It runs in the background and helps manage memory efficiently.
+
+
+6. Why do we use getters and setters?
+To control access to class fields.
+To validate or process data before assigning or returning.
+To support encapsulation and data hiding.
+
+
+6. Why do we use getters and setters?
+To control access to class fields.
+To validate or process data before assigning or returning.
+To support encapsulation and data hiding.
+
+Example:
+class Student {
+    static String schoolName = "ABC School";
+}
+
+
+8. What is the use of final keyword?
+Usage	        Meaning
+final variable	Value cannot be changed
+final method	Method cannot be overridden
+final class	    Class cannot be extended (no subclassing)
+
+
+9. Difference between compile-time and runtime errors?
+ Type            Compile-Time Error                Runtime Error
+ --------------  --------------------------------  ----------------------------
+ When it occurs  During code compilation           During program execution
+ Examples        Syntax errors, missing semicolon  Divide by zero, null pointer
+
+
+10. What are access modifiers?
+Access modifiers control visibility of classes, variables, methods.
+
+Modifier	    Accessible Within	        Example Use
+private	        Same class only	            Sensitive fields
+default	        Same package	            Package-level access
+protected	    Same package + subclasses	Inheritance
+public	        Everywhere	                Utility methods
