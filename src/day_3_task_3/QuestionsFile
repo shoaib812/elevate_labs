@@ -1,0 +1,122 @@
+1. What is abstraction?
+Abstraction is the process of hiding complex internal details and showing only the essential features of an object.
+Achieved using abstract classes and interfaces
+Helps in focusing on what an object does instead of how
+
+Example:
+abstract class Animal {
+    abstract void makeSound();  // only signature
+}
+
+class Dog extends Animal {
+    void makeSound() {
+        System.out.println("Bark");
+    }
+}
+
+
+2. Difference between interface and abstract class?
+Feature	            Interface	                        Abstract Class
+Methods	            All methods are abstract (Java 7)	Can have both abstract and normal methods
+Variables	        Public static final (constants)	    Can have any type of variables
+Inheritance	        Supports multiple inheritance	    Only single inheritance
+Constructors	    Not allowed	                        Allowed
+Default methods	    Java 8+ supports default/static	    Supported always
+
+
+3. Explain polymorphism with example.
+Polymorphism means "many forms". It allows objects to behave differently based on their actual class at runtime.
+Types:
+Compile-time (method overloading)
+Runtime (method overriding)
+
+Example:
+class Animal {
+    void sound() { System.out.println("Animal sound"); }
+}
+
+class Cat extends Animal {
+    void sound() { System.out.println("Meow"); }
+}
+
+Animal a = new Cat();  // polymorphic behavior
+a.sound();             // Output: Meow
+
+
+4. What is method overriding?
+Method overriding is when a subclass provides its own implementation of a method already defined in the parent class.
+
+Rules:
+Same method name and parameters
+Subclass only
+Runtime polymorphism
+
+
+5. Explain “IS-A” vs “HAS-A” relationships.
+Relationship	Meaning	                    Example
+IS-A	        Inheritance (extends)	    Dog is-a Animal
+HAS-A	        Composition (uses a class)	Car has-a Engine
+
+
+6. Why use inheritance?
+Reuse existing code
+Improve maintainability
+Achieve IS-A relationships
+Enable polymorphism
+
+
+7. What is dynamic binding?
+Also called late binding, it means the method call is resolved at runtime, not at compile-time.
+
+Used in method overriding for polymorphism:
+Animal a = new Dog();
+a.sound();  // Bound at runtime
+
+
+8. What is constructor chaining?
+Constructor chaining is calling one constructor from another constructor in the same or parent class.
+
+Using this() or super()
+class A {
+    A() {
+        this(10);
+    }
+    A(int x) {
+        System.out.println("Value: " + x);
+    }
+}
+
+
+9. How to implement encapsulation?
+Encapsulation means:
+Keeping variables private
+Providing getters and setters to access/update them
+
+Example:
+class Student {
+    private String name;
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+}
+
+
+10. Explain super keyword.
+super is used to refer to parent class members.
+
+Uses:
+Call parent class constructor: super()
+Access parent class method: super.methodName()
+Access parent class variable: super.variable
+
+class Animal {
+    void sound() { System.out.println("Animal sound"); }
+}
+
+class Dog extends Animal {
+    void sound() {
+        super.sound(); // calls parent method
+        System.out.println("Dog barks");
+    }
+}
+
