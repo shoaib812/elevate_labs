@@ -1,0 +1,92 @@
+1. Difference between FileReader and BufferedReader?
+FileReader:
+Reads characters directly from a file.
+Less efficient because it reads one character at a time.
+Example: FileReader fr = new FileReader("file.txt");
+BufferedReader:
+Wraps around another Reader (e.g., FileReader) and reads larger chunks into a buffer for efficiency.
+Can read entire lines with readLine().
+Example:
+BufferedReader br = new BufferedReader(new FileReader("file.txt"));
+
+
+2. What is try-with-resources?
+A Java feature (since Java 7) that automatically closes resources (like files, sockets, DB connections) after use.
+try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
+    System.out.println(br.readLine());
+} catch (IOException e) {
+    e.printStackTrace();
+}
+No need for a finally block to close the resource.
+
+
+3. How to handle IOException?
+Using try-catch:
+try {
+    FileReader fr = new FileReader("file.txt");
+} catch (IOException e) {
+    e.printStackTrace();
+}
+Or throwing it with throws IOException in method signature.
+
+
+4. What are checked and unchecked exceptions?
+Checked exceptions:
+Checked at compile-time.
+Must be handled or declared in method.
+Example: IOException, SQLException.
+Unchecked exceptions:
+Checked at runtime only.
+Extends RuntimeException.
+Example: NullPointerException, ArithmeticException.
+
+
+5. How does file writing work in Java?
+Open a stream (like FileWriter or BufferedWriter).
+Write data to the stream.
+Flush (optional) and close the stream to save changes.
+FileWriter fw = new FileWriter("notes.txt");
+fw.write("Hello World");
+fw.close();
+
+
+6. Difference between append and overwrite mode?
+Overwrite (default): Clears existing file content and writes new content.
+new FileWriter("file.txt"); // overwrite
+
+Append: Keeps existing content and adds new data at the end.
+new FileWriter("file.txt", true); // append
+
+
+7. What is exception propagation?
+The process of an exception moving up the call stack until it is caught.
+If a method does not handle an exception, it’s passed to its caller.
+
+void method1() throws IOException {
+    throw new IOException();
+}
+
+
+8. How to log exceptions?
+Simple: Use printStackTrace() (for debugging).
+Better: Use Logger (e.g., java.util.logging or Log4j).
+Logger logger = Logger.getLogger("MyLog");
+logger.log(Level.SEVERE, "Error occurred", e);
+
+
+9. What is a stack trace?
+A list showing the method call sequence that led to the exception.
+It helps in debugging where exactly the error occurred.
+
+
+10. When to use finally block?
+When you need to run cleanup code whether or not an exception is thrown.
+Example: closing file/database connections.
+
+try {
+    FileReader fr = new FileReader("file.txt");
+} catch (IOException e) {
+    e.printStackTrace();
+} finally {
+    System.out.println("Cleanup done.");
+}
