@@ -1,0 +1,88 @@
+1. What is inheritance in Java?
+Inheritance is an OOP concept where one class (child/subclass) acquires the properties and
+behaviors (fields and methods) of another class (parent/superclass).
+Enables code reusability.
+Achieved using the extends keyword.
+
+class Parent { void greet() { System.out.println("Hello!"); } }
+class Child extends Parent {}
+
+
+2. Why use this keyword?
+this refers to the current object of the class.
+To differentiate between instance variables and parameters with the same name.
+To call another constructor in the same class (this()).
+To pass the current object as a parameter.
+
+class Demo {
+    int x;
+    Demo(int x) { this.x = x; } // differentiates instance & local variable
+}
+
+
+3. What is method overriding vs overloading?
+Overriding: Subclass provides its own implementation of a method already defined in the superclass (same signature, runtime polymorphism).
+Overloading: Same method name but different parameter lists (compile-time polymorphism).
+
+// Overloading
+void sum(int a, int b) {}
+void sum(double a, double b) {}
+
+// Overriding
+class Parent { void display() {} }
+class Child extends Parent { void display() {} }
+
+
+4. What is object instantiation?
+It’s the process of creating an object from a class using the new keyword.
+
+Car myCar = new Car();
+
+
+5. Explain single vs multiple inheritance.
+Single inheritance: A class inherits from only one superclass.
+Multiple inheritance: A class inherits from more than one superclass (Java supports this via interfaces, not classes).
+
+// Multiple inheritance via interfaces
+interface A { void show(); }
+interface B { void display(); }
+class C implements A, B { public void show() {} public void display() {} }
+
+
+6. What is encapsulation?
+Encapsulation means wrapping data (fields) and methods in a single unit and restricting direct access to the data. Achieved via:
+Private fields.
+Public getters/setters.
+
+class BankAccount {
+    private double balance;
+    public void deposit(double amount) { balance += amount; }
+    public double getBalance() { return balance; }
+}
+
+
+7. What is constructor overloading?
+Defining multiple constructors in the same class with different parameter lists.
+class Student {
+    Student() {}
+    Student(String name) {}
+}
+
+
+8. Can we override static methods?
+No. Static methods belong to the class, not objects. They can be hidden (method hiding), not overridden.
+
+
+9. What is runtime polymorphism?
+When the method to be executed is determined at runtime (achieved through method overriding and upcasting).
+
+Parent p = new Child(); // which display() is called? Decided at runtime
+p.display();
+
+
+10. Difference between class and object?
+Class: A blueprint or template for creating objects.
+Object: An instance of a class with real values.
+
+class Dog { String name; }
+Dog d1 = new Dog(); // d1 is an object
