@@ -1,0 +1,79 @@
+1. What is Swing?
+Swing is a Java GUI toolkit (part of javax.swing package) used to build desktop applications.
+It’s lightweight, platform-independent, and built on top of AWT but offers more advanced and
+flexible components like JButton, JTable, and JTree.
+
+
+2. Difference between AWT and Swing?
+Feature	AWT	Swing
+Dependency	Uses native OS components	Pure Java implementation
+Look & Feel	Platform-dependent	Pluggable Look & Feel
+Components	Limited set	Rich set (tables, trees, sliders, etc.)
+Performance	Faster (uses OS resources)	Slightly slower but more flexible
+Thread Safety	Not thread-safe	Must run on EDT (Event Dispatch Thread)
+
+
+3. What is ActionListener?
+An interface in java.awt.event used to handle button clicks or similar actions.
+It has one method:
+void actionPerformed(ActionEvent e)
+You implement it to define what should happen when a user performs an action (like clicking a button).
+
+
+4. How to manage layouts in Java?
+Java provides layout managers to arrange components:
+FlowLayout – places components in a row.
+BorderLayout – divides into North, South, East, West, Center.
+GridLayout – places components in equal-sized grid cells.
+BoxLayout – arranges components in a row or column.
+null layout – manual positioning (setBounds).
+
+
+5. What is the Event Dispatch Thread (EDT)?
+The EDT is the special thread responsible for handling all GUI-related events (drawing UI, responding to clicks).
+All Swing UI updates must be done on this thread using:
+SwingUtilities.invokeLater(() -> { /* update UI */ });
+
+
+6. What are the GUI components in Java?
+Common Swing components:
+JFrame – main window
+JButton – button
+JLabel – text display
+JTextField – single-line text input
+JTextArea – multi-line text input
+JCheckBox, JRadioButton – options
+JTable, JList – lists and tables
+JScrollPane – scrollable container
+
+
+7. How to handle multiple events?
+Register different listeners for different components.
+Use ActionCommand to distinguish actions in the same listener:
+button1.setActionCommand("ADD");
+button2.setActionCommand("DELETE");
+
+Inside actionPerformed() check:
+if (e.getActionCommand().equals("ADD")) { ... }
+
+
+8. What is JPanel vs JFrame?
+JFrame → The main window (top-level container).
+JPanel → A sub-container inside JFrame to group components.
+Example: You can have multiple panels inside a frame for different sections.
+
+
+9. How to add scroll bar in GUI?
+Wrap the component inside JScrollPane:
+JTextArea textArea = new JTextArea(20, 50);
+JScrollPane scrollPane = new JScrollPane(textArea);
+frame.add(scrollPane);
+This automatically adds scroll bars when needed.
+
+
+10. What is MVC architecture?
+MVC stands for Model–View–Controller:
+Model – Data and business logic
+View – UI elements (e.g., Swing components).
+Controller – Handles user actions and updates Model & View.
+In Swing, separating MVC helps keep code modular and maintainable.
