@@ -1,0 +1,65 @@
+1. What is JDBC?
+JDBC (Java Database Connectivity) is a Java API that allows Java programs to interact with databases using SQL.
+It provides classes and interfaces to connect, execute queries, and retrieve results.
+
+
+2. What is PreparedStatement?
+PreparedStatement is a JDBC interface used for executing parameterized SQL queries.
+It is precompiled, which improves performance and prevents SQL injection.
+
+
+3. Difference between Statement and PreparedStatement?
+
+Aspect	        Statement	        PreparedStatement
+SQL Structure	Hardcoded SQL	    Parameterized SQL
+Performance	    Compiled every time	Precompiled once
+SQL Injection	Vulnerable	        Safe from injection
+Use Case	    Simple queries	    Repeated queries with parameters
+
+
+4. How do you handle SQL exceptions?
+Use try-catch blocks to catch SQLException and log or display the error.
+
+Example:
+try {
+    // DB code
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+
+
+5. How to prevent SQL Injection?
+Use PreparedStatement instead of Statement
+Validate and sanitize user input
+Use stored procedures
+
+
+6. What is JDBC DriverManager?
+DriverManager is a class that manages JDBC drivers and establishes connections between Java applications and databases.
+Example:
+Connection con = DriverManager.getConnection(url, user, pass);
+
+
+7. How to close connections?
+Close ResultSet, Statement/PreparedStatement, and Connection in finally block or using try-with-resources.
+try (Connection con = ...; PreparedStatement ps = ...; ResultSet rs = ...) {
+    // work
+}
+
+
+8. What is a ResultSet?
+ResultSet is an object that holds the data returned by executing a SQL query.
+It allows row-by-row data access.
+
+
+9. What is auto-commit in JDBC?
+When auto-commit is true (default), each SQL statement is executed and committed immediately.
+If set to false, you must explicitly call commit().
+
+
+10. How to connect Java to MySQL?
+Add MySQL JDBC driver to classpath
+Use DriverManager.getConnection() with URL, username, and password.
+
+String url = "jdbc:mysql://localhost:3306/dbname";
+Connection con = DriverManager.getConnection(url, "root", "password");
