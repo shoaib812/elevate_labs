@@ -1,0 +1,75 @@
+1. What are Java loops?
+Loops allow a block of code to run multiple times until a condition is met.
+Types:
+for loop
+while loop
+do-while loop
+Enhanced for-each loop
+
+
+2. What is enhanced for-loop?
+The enhanced for-loop (or for-each loop) is used to iterate over arrays or collections without using an index.
+for (String name : names) {
+    System.out.println(name);
+}
+It’s read-only (you can’t modify the collection while iterating directly).
+
+
+3. How do you handle multiple user inputs?
+You can use the Scanner class and read inputs in a loop.
+Scanner sc = new Scanner(System.in);
+for (int i = 0; i < 5; i++) {
+    System.out.print("Enter a number: ");
+    int num = sc.nextInt();
+}
+Or read until a stop condition.
+
+
+4. How is a switch-case different from if-else?
+if-else: Works for ranges, conditions, and logical operations.
+switch-case: Best for fixed values (int, char, String, enum).
+switch(day) {
+    case "Monday": System.out.println("Workday"); break;
+    default: System.out.println("Invalid");
+}
+
+
+5. What are collections in Java?
+Collections are data structures in the java.util package used to store, manipulate, and retrieve groups of objects.
+Examples: List, Set, Queue, Map.
+
+
+6. What is ArrayList?
+A resizable array in Java.
+Allows duplicates and maintains insertion order.
+Belongs to java.util.
+ArrayList<String> list = new ArrayList<>();
+list.add("Apple");
+
+
+7. How to iterate using iterators?
+ArrayList<String> list = new ArrayList<>();
+list.add("A"); list.add("B");
+Iterator<String> it = list.iterator();
+while (it.hasNext()) {
+    System.out.println(it.next());
+}
+Iterator allows safe removal of elements while looping.
+
+
+8. What is a Map?
+A Map<K, V> stores key-value pairs.
+Keys are unique.
+Examples: HashMap, TreeMap, LinkedHashMap.
+Map<String, Integer> map = new HashMap<>();
+map.put("John", 25);
+
+
+9. How to sort a list?
+Collections.sort(list); // Ascending
+Collections.sort(list, Collections.reverseOrder()); // Descending
+
+
+10. How to shuffle elements?
+Collections.shuffle(list);
+Randomizes the order of elements in the list.
